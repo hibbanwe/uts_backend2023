@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,17 +21,22 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 # Route new
-Route::get('/new', [NewController::class, 'index']);
-Route::post('/new', [NewController::class, 'store']);
-Route::put('/new/{id}', [NewController::class, 'update']);
-Route::delete('/new/{id}', [NewController::class, 'destroy']);
+Route::get('/news', [NewsController::class, 'index']);
+Route::post('/news', [NewsController::class, 'store']);
+Route::put('/news/{id}', [NewsController::class, 'update']);
+Route::delete('/news/{id}', [NewsController::class, 'destroy']);
+Route::get('/news/search/{title}', [NewsController::class, 'search']);
+Route::get('/news/category/automotive', [NewsController::class, 'automotive']);
+Route::get('/news/category/finance', [NewsController::class, 'finance']);
+Route::get('/news/category/sport', [NewsController::class, 'sport']);
+
 
 # Route new
 # Method GET
-Route::get('/new', [NewController::class, 'index']);
-Route::get('/new/{id}', [NewController::class, 'show']);
+Route::get('/news', [NewsController::class, 'index']);
+Route::get('/news/{id}', [NewsController::class, 'show']);
 
 # Method POST
-Route::post('/new', [NewController::class, 'store']);
-Route::put('/new/{id}', [NewController::class, 'update']);
-Route::delete('/new/{id}', [NewController::class, 'destroy']);
+Route::post('/news', [NewsController::class, 'store']);
+Route::put('/news/{id}', [NewsController::class, 'update']);
+Route::delete('/news/{id}', [NewsController::class, 'destroy']);

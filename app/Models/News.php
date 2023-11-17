@@ -9,5 +9,6 @@ class News extends Model
 {
     use HasFactory;
     // menambahkan property fillable
-    protected $fillable = ['nama', 'nim', 'email', 'jurusan'];
+    protected $fillable = ['title','author','description','content','url','url_image',
+    'publishe_at','category'];
 }
